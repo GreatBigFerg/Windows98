@@ -313,6 +313,7 @@
                 line-height: 22px;
                 margin: 0;
                 border: 1px outset #fff;
+                padding-bottom: 4px;
             }
                 .menu-bar a {
                     text-decoration: none;
@@ -664,9 +665,9 @@
             top: -4px;
         }
         .application-window {
-            bottom: 20% !important; /*  */
-            left: 20% !important; /*  */
-            height: 440.4px !important; /*  */
+            bottom: 20%; /*  */
+            left: 20%; /*  */
+            height: 400.4px; /*  */
             z-index: 103;
         }
         .application-fullscreen {
@@ -716,7 +717,7 @@
             max-width: 219px;
             min-width: 30px;
             margin-top: 4px;
-            margin-left: 6px;
+            margin-left: 2px;
             box-shadow: 1px 1px black;
             height: 25px;
             vertical-align: top;
@@ -751,11 +752,12 @@
         #explorer {
             z-index: 122;
             display: none;
-            width: 800px;
+            width: 750px;
         }
         .explorer .title {
-            background: url(../images/win98_icons/directory_open.ico) no-repeat left center;
+            background: url(./images/win98_icons/directory_open.ico) no-repeat left center;
             background-size: 16px 16px;
+            padding-left: 20px;
         }
         .window-border {
             margin-bottom: 0px;
@@ -776,36 +778,57 @@
         }
         .explorer-top-bar a:hover {border: 1px outset #fff;}
         .explorer-top-bar a:active {border: 1px inset #fff;}
-        .explorer-top-bar.b-back {background-image: url(../images/Mail/back.bmp);}
-        .b-forward {background-image: url(../images/Mail/forward.bmp);}
-        .b-up {background-image: url(../images/Mail/up1.bmp);}
-        .b-delete { background-image: url(../images/Mail/delete.bmp);}
-        .b-properties {width: 52px;background-image: url(../images/Mail/properties.bmp);}
-        .b-send {background-image: url(../images/Mail/send.bmp);}
-        .b-cut {background-image: url(../images/Mail/cut.bmp);}
-        .b-copy {background-image: url(../images/Mail/copy.bmp);}
-        .b-paste {background-image: url(../images/Mail/paste.bmp);}
-        .b-undo {background-image: url(../images/Mail/undo.bmp);}
-        .b-attach {background-image: url(../images/Mail/attach.bmp);}
-        .f-sep {
-            display: inline-block;
-            width: 1px;
-            background: #a5a5a5;
-            height: 44px;
-            border: 1px outset #fff;
-            vertical-align: top;
-            margin: 1px 0 2px 0;
-        }
-        .sep {
-            display: inline-block;
-            width: 1px;
-            background: #a5a5a5;
-            height: 44px;
-            border-right: 2px solid #ffffff;
-            border-bottom: 2px solid #ffffff;
-            vertical-align: top;
-            margin: 1px 0 2px 0;
-        }
+        .explorer-top-bar .b-back {background-image: url(./images/Mail/back.bmp);}
+            .explorer-top-bar .b-forward {
+                background-image: url(./images/Mail/forward.bmp);
+            }
+            .explorer-top-bar .b-up {
+                background-image: url(./images/Mail/up1.bmp);
+            }
+            .explorer-top-bar .b-delete {
+                background-image: url(./images/Mail/delete.bmp);
+            }
+            .explorer-top-bar .b-properties {
+                width: 52px;
+                background-image: url(./images/Mail/properties.bmp);
+            }
+            .explorer-top-bar .b-send {
+                background-image: url(./images/Mail/send.bmp);
+            }
+            .explorer-top-bar .b-cut {
+                background-image: url(./images/Mail/cut.bmp);
+            }
+            .explorer-top-bar .b-copy {
+                background-image: url(./images/Mail/copy.bmp);
+            }
+            .explorer-top-bar .b-paste {
+                background-image: url(./images/Mail/paste.bmp);
+            }
+            .explorer-top-bar .b-undo {
+                background-image: url(./images/Mail/undo.bmp);
+            }
+            .explorer-top-bar .b-attach {
+                background-image: url(./images/Mail/attach.bmp);
+            }
+            .explorer-top-bar .f-sep {
+                display: inline-block;
+                width: 1px;
+                background: #a5a5a5;
+                height: 44px;
+                border: 1px outset #fff;
+                vertical-align: top;
+                margin: 1px 0 2px 0;
+            }
+            .explorer-top-bar .sep {
+                display: inline-block;
+                width: 1px;
+                background: #a5a5a5;
+                height: 44px;
+                border-right: 2px solid #ffffff;
+                border-bottom: 2px solid #ffffff;
+                vertical-align: top;
+                margin: 1px 0 2px 0;
+            }
         .header-info {
             padding: 0px;
             margin: 0px;
@@ -815,14 +838,14 @@
             margin: 0px;
             padding: 0px;
         }
-            p{
-            display: inline-block;
-            margin: 4px 0px 0px 0px;
-        }
+            .middle-bar p {
+                display: inline-block;
+                margin: 4px 0px 0px 0px;
+            }
         .address {
             padding-right: 4px;
-        }       
-        input {
+        }
+        .middle-bar input {
             display: inline-block;
             width: 80%;
             border: 1px solid #000;
@@ -855,7 +878,7 @@
             margin: 8px 0px 8px 16px;
         }
         .explorer-icon {
-            background: url(../images/win98_icons/directory_closed.ico);
+            background: url(./images/win98_icons/directory_closed.ico);
             margin: 16px 0px 0px 16px;
             background-repeat: no-repeat;
             background-size: 32px;
@@ -885,7 +908,7 @@
             display: inline-block;
         }
         .left-side {
-            background-image: url(../images/explorercorner.jpg);
+            background-image: url(./images/explorercorner.jpg);
             background-repeat: no-repeat;
             width: 30%;
             display: inline-block;
@@ -934,14 +957,14 @@
         .status-bar {
             margin-top: 5px;
             border-top: 1px solid #848484;
-            background: url("../images/window/status-bar-grip.png") no-repeat right bottom;
+            background: url("./images/window/status-bar-grip.png") no-repeat right bottom;
         }
         .status-bar-content {
             border-top: 1px solid #fff;
             padding: 0px 0px 0px 0px;
         }
         .status-bar .box {
-            height: 16px;
+            height: 23px;
             display: inline-block;
             border: 1px inset #fff;
             padding: 0px 0px;
@@ -1000,51 +1023,52 @@
     <div id="desktop">
         <!-- My Computer -->
         <div class="application">
-            <img src="computer_explorer.ico" class="application-icon" />
+            <img src="./images/computer_explorer.ico" class="application-icon" />
             <div class="application-title">
                 My Computer
             </div>
         </div>
         <!-- About Me -->
         <div class="application">
-            <img src="notepad.ico" class="application-icon" />
+            <img src="./images/notepad.ico" class="application-icon" />
             <div class="application-title">
                 About Me
             </div>
         </div>
         <!-- Projects -->
         <div class="application">
-            <img src="directory_closed.ico" class="application-icon" />
+            <img src="./images/directory_closed.ico" class="application-icon" />
             <div class="application-title">
                 Projects
             </div>
         </div>
         <!-- More -->
         <div class="application" onclick="openApplication('explorer', 'explorer-task')">
-            <img src="directory_open_file_mydocs.ico" class="application-icon" />
+            <img src="./images/directory_open_file_mydocs.ico" class="application-icon" />
             <div class="application-title">
                 More
             </div>
         </div>
         <!-- Contact -->
         <div class="application">
-            <img src="mail.ico" class="application-icon" />
+            <img src="./images/mail.ico" class="application-icon" />
             <div class="application-title">
                 Contact Me
             </div>
         </div>
         <!-- Minesweeper -->
         <div class="application" onclick="openApplication('minesweeper', 'minesweeper-task')">
-            <img src="minesweeper.ico" class="application-icon" />
+            <img src="./images/minesweeper.ico" class="application-icon" />
             <div class="application-title">
                 Minesweeper
             </div>
         </div>
         <!-- Minesweeper Application Window -->
-        <div id="minesweeper" class="window ui-widget-content ui-draggable active-window application-window" program-name="minesweeper" pid="1"> <!-- ui-widget-content ui-draggable  -->
+        <div id="minesweeper" class="window active-window application-window" program-name="minesweeper" pid="1">
+            <!--  ui-widget-content ui-draggableui-widget-content ui-draggable  -->
             <div class="window-border">
                 <div class="title-bar h-count ui-draggable-handle" id="parent">
-                    <img class="icon" src="minesweeper.ico" />
+                    <img class="icon" src="./images/minesweeper.ico" />
                     <div class="control-box">
                         <a class="button-3d minimize" onclick="toggleActive('minesweeper-task', 'minesweeper')"><span>&nbsp;</span></a>
                         <a class="button-3d maximize" onclick="fullscreen('minesweeper')"><span>&nbsp;</span></a>
@@ -1061,7 +1085,8 @@
             </div>
         </div>
         <!-- Explorer Application Window -->
-        <div id="explorer" class="explorer window ui-widget-content ui-draggable ui-resizable active-window application-window" program-name="explorer" pid="3" directory="Desktop/My Projects">
+        <div id="explorer" class="explorer window active-window application-window" program-name="explorer" pid="3" directory="Desktop/My Projects">
+            <!--  ui-widget-content ui-draggable ui-resizable -->
             <div class="window-border">
                 <div class="title-bar ui-draggable-handle" id="parent">
                     <div class="control-box">
@@ -1107,45 +1132,49 @@
                 <div id="explorer-content" class="content">
                     <div class="left-side">
                         <div class="explorer-icon"></div>
-                        <div class="explorer-header">
-                            My Projects
-                        </div>
+                        <div class="explorer-header">My Projects</div>
                         <div class="underline-header">
                             <!-- <div class="red"></div>
-                        <div class="yellow"></div>
-                        <div class="green"></div>
-                        <div class="blue"></div> -->
+                    <div class="yellow"></div>
+                    <div class="green"></div>
+                    <div class="blue"></div> -->
                         </div>
                         <br>
                         <div class="sub-header">Select an item to view its description</div>
                     </div>
                     <div class="right-side">
                         <div class="folder-location">
-                            <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://github.com/lolstring">
+                            <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" onclick="window.open('https://github.com/GreatBigFerg')" url="https://github.com/GreatBigFerg">
                                 <p class="text"><span>Github</span></p>
                             </div>
-                            <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://linkedin.com/in/rahmehra">
+                            <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" onclick="window.open('https://linkedin.com/in/ferguson-bryce')" url="https://linkedin.com/in/ferguson-bryce">
                                 <p class="text"><span>LinkedIn</span></p>
                             </div>
-                            <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://youtube.com/user/lolstring909">
-                                <p class="text"><span>Youtube</span></p>
+                            <!--
+    <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://youtube.com/user/lolstring909">
+        <p class="text"><span>Youtube</span></p>
+    </div>
+        -->
+                            <div class="folder-icon user-file" tabindex="0" fileid="file-0000000000001" program-name="msword" type="undefined" style="background:url(./images/win98_icons/WINWORD_2.ico) no-repeat center top;background-size: 32px; ">
+                                <p class="text" style="text-align:center;"><span>My Details</span></p>
                             </div>
-                            <div class="folder-icon user-file" tabindex="0" fileid="file-0000000000001" program-name="msword" type="undefined" style="background:url(../images/win98_icons/WINWORD_2.ico) no-repeat center top;background-size: 32px; "><p class="text" style="text-align:center;"><span>My Details</span></p></div>
                         </div>
                     </div>
                 </div>
-                <div class="status-bar  h-count" id="status-bar-1">
+                <div class="status-bar h-count" id="status-bar-1">
                     <div class="status-bar-content">
-                        <span class="box" style="width:20%">
-                        </span>
+                        <span class="box" style="width:20%"></span>
                         <span class="box size" style="width:50%"></span>
                         <span class="box" style="width:25%">
-                            <img class="status-folder-icon" src="images/win98_icons/directory_open.ico">My Projects
+                            <img class="status-folder-icon" src="images/win98_icons/directory_open.ico">
+                            My Projects
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
         </div>
         <!--
         <div id="mydiv">
@@ -1159,21 +1188,21 @@
     <div id="taskbar">
         <!-- Start Button -->
         <div id="start-button" onclick="showItem('start-menu')">            
-            <img src="windows.ico" id="windows-icon" />
+            <img src="./images/windows.ico" id="windows-icon" />
             <div id="start-button-text">Start</div>
         </div>
         <!-- Open Applications in the Taskbar -->
         <div id="task-container">
             <!-- Minesweeper -->
             <div id="minesweeper-task" class="task active-task" onclick="toggleActive('minesweeper-task', 'minesweeper')">
-                <img class="task-icon" src="minesweeper.ico" />
+                <img class="task-icon" src="./images/minesweeper.ico" />
                 <div class="task-text">
                     Minesweeper
                 </div>
             </div>
-            <!--  -->
+            <!-- Explorer -->
             <div id="explorer-task" class="task active-task" onclick="toggleActive('explorer-task', 'explorer')">
-                <img class="task-icon" src="directory_closed.ico" />
+                <img class="task-icon" src="./images/directory_closed.ico" />
                 <div class="task-text">
                     Explorer
                 </div>
@@ -1181,7 +1210,7 @@
         </div>
         <!-- Notifications & Clock -->
         <div id="notification-tray">
-            <img src="volume.ico" id="volume-icon" />
+            <img src="./images/volume.ico" id="volume-icon" />
             <div id="clock"></div>
         </div>
     </div>
@@ -1190,42 +1219,42 @@
         <div id="start-menu-button-container">
             <!-- Programs -->
             <div class="start-menu-button">
-                <img src="directory_program_group_small.ico" class="start-menu-button-icon" />
+                <img src="./images/directory_program_group_small.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Programs</div>
             </div>
             <!-- Favorites -->
             <div class="start-menu-button">
-                <img src="directory_favorites_small.ico" class="start-menu-button-icon" />
+                <img src="./images/directory_favorites_small.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Favorites</div>
             </div>
             <!-- Documents -->
             <div class="start-menu-button">
-                <img src="directory_open_file_mydocs.ico" class="start-menu-button-icon" style="width:26px; margin-left:5px; margin-right:4px;" />
+                <img src="./images/directory_open_file_mydocs.ico" class="start-menu-button-icon" style="width:26px; margin-left:5px; margin-right:4px;" />
                 <div class="start-menu-button-label" style="margin-top:8px;">Documents</div>
             </div>
             <!-- Find -->
             <div class="start-menu-button">
-                <img src="search_file_2.ico" class="start-menu-button-icon" />
+                <img src="./images/search_file_2.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Find</div>
             </div>
             <!-- Run -->
             <div class="start-menu-button">
-                <img src="application_hourglass_small.ico" class="start-menu-button-icon" />
+                <img src="./images/application_hourglass_small.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Run</div>
             </div>
             <!-- Help -->
             <div class="start-menu-button">
-                <img src="help_book_small.ico" class="start-menu-button-icon" />
+                <img src="./images/help_book_small.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Help</div>
             </div>
             <!-- Log Off -->
             <div class="start-menu-button">
-                <img src="key_win.ico" class="start-menu-button-icon" />
+                <img src="./images/key_win.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Log Off</div>
             </div>
             <!-- Shut Down -->
             <div class="start-menu-button">
-                <img src="shut_down_cool.ico" class="start-menu-button-icon" />
+                <img src="./images/shut_down_cool.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Shut Down</div>
             </div>
         </div>
@@ -1307,28 +1336,29 @@
             item = document.getElementById(id);
             if (item.classList.contains('application-fullscreen')) {
                 item.classList.remove('application-fullscreen');
-                item.style.top = "73.4px";
-                item.style.left = "512px";
-                item.style.height = "440.4px";
-                document.getElementById("minesweeper-content").style.height = "auto";
-                document.getElementById("minesweeper-content").style.width = "auto";
+                if (id == 'minesweeper') {
+                    item.style.top = "73.4px";
+                    item.style.left = "512px";
+                    item.style.height = "440.4px";
+                    document.getElementById("minesweeper-content").style.height = "auto";
+                    document.getElementById("minesweeper-content").style.width = "auto";
+                }
+                else if (id == 'explorer') {
+                    document.getElementById("explorer-content").style.height = "auto";
+                    document.getElementById("explorer-content").style.width = "auto";
+                }                
             }
             else {
                 item.classList.add('application-fullscreen');
-                document.getElementById("minesweeper-content").style.height = h + "px";
-                document.getElementById("minesweeper-content").style.width = w + "px";
+                if (id == 'minesweeper') {
+                    document.getElementById("minesweeper-content").style.height = h + "px";
+                    document.getElementById("minesweeper-content").style.width = w + "px";
+                }
+                else if (id == 'explorer') {
+                    document.getElementById("explorer-content").style.height = h + "px";
+                    document.getElementById("explorer-content").style.width = w + "px";
+                }
             }
-        }
-        function exitfullscreen(id) {
-            item = document.getElementById(id);
-            item.style.display = 'none';
-            item.classList.remove('application-fullscreen');
-            item.style.top = "73.4px !important";
-            item.style.left = "512px !important";
-            item.style.height = "440.4px !important";
-            document.getElementById("minesweeper-content").style.height = "381px !important";
-            document.getElementById("minesweeper-content").style.width = "304px !important";
-            item.style.display = 'block';
         }
         function showItem(id) {
             item = document.getElementById(id);
@@ -1336,6 +1366,18 @@
                 item.style.display = 'block';
             }
             else if (item.style.display == ' block') {
+                item.style.display = 'none';
+            }
+            else {
+                item.style.display = 'none';
+            }
+        }
+        function showInlineItem(id) {
+            item = document.getElementById(id);
+            if (item.style.display == 'none') {
+                item.style.display = 'inline-block';
+            }
+            else if (item.style.display == ' inline-block') {
                 item.style.display = 'none';
             }
             else {
@@ -1354,14 +1396,13 @@
         }
         function openApplication(window, task) {
             showItem(window);
-            showItem(task);
+            showInlineItem(task);
             toggleActive(task);
         }
         function closeApplication(window, task) {
             showItem(window);
-            showItem(task);
+            showInlineItem(task);
         }
-
     </script>
 </body>
 </html>
