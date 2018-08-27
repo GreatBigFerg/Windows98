@@ -6,749 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="application.css" />
     <!--<link rel="stylesheet" href="./styles/jquery-ui.css" />-->
     <style>
-            body {
-                font-family: 'Helvetica Neue', Arial, Arial, Helvetica, sans-serif, sans-sherif;
-                font-size: 16px;
-                background-color: teal;
-            }
-            #taskbar {
-                margin: 0px;
-                padding: 0px 8px;
-                width: 100%;
-                height: 32px;
-                position: fixed;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                border-top: 2px outset #fff;
-                background-color: #c0c0c0;
-                z-index: 999999;
-            }
-            #start-button {
-                cursor: pointer;
-                display: inline-block;
-                border: 2px outset #fff;
-                padding: 0px 0px 0px 4px;
-                width: 69px;
-                margin-top: 2px;
-                box-shadow: 1px 1px black;
-                height: 25px;
-                left: 0px;
-                margin-left: -6px;
-            }
-            #start-button-text {
-                display: inline-block;
-                text-align: left;
-                font-size: 14px;
-                position: absolute;
-                margin: 0;
-                font-weight: bold;
-                top: 6px;
-            }
-            #start-button:active {
-                border: 2px inset #fff;
-                box-shadow: -1px -1px black;
-                font-weight: bold;
-                margin-top: 4px;
-            }
-            #windows-icon {
-                width: 20px;
-                height: 20px;
-                margin-right: 3px;
-                margin-bottom: 4px;
-            }
-            #notification-tray {
-                position: fixed;
-                right: 2px;
-                bottom: 2px;
-                border: 2px inset #fff;
-                text-align: right;
-                width: 95px;
-                height: 26px;
-                margin-top: 2px;
-                margin-left: 2px;
-                padding: 0px 4px 0px 4px;
-            }
-            #clock {
-                font-size: 14px;
-                margin-left: 0px;
-            }
-            #volume-icon {
-                position: fixed;
-                bottom: 6px;
-                right: 72px;
-                width: 18px;
-                height: 18px;
-            }
-            #desktop {
-                position: absolute;
-                bottom: 32px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                padding-top: 13px;
-                padding-left: 0px;
-            }
-            .application {
-                cursor: pointer;
-                position: relative;
-                top: 30px;
-                left: 0px;
-                width: 80px;
-                height: 60px;
-                text-align: center;
-                padding-top: 4px;
-                margin-left: 6px;
-                margin-top: 14px;
-            }
-                .application:first-child {
-                    margin-top: 0px;
-                }
-            .application-icon {
-                width: 32px;
-                height: 32px;
-            }
-            .application-title {
-                font-size: 12px;
-                color: white;
-                text-align: center;
-                margin-top: 4px;
-            }
-            #start-menu {
-                display: none;
-                background-color: #c0c0c0;
-                position: fixed;
-                left: 2px;
-                bottom: 25px;
-                width: 215px;
-                height: 350px;
-                border: 2px outset #fff;
-                box-shadow: 1px 1px black;
-                overflow-y: auto;
-                animation-name: floatup;
-                animation-duration: 0.5s;
-                -webkit-animation-name: floatup;
-                -webkit-animation-duration: 0.5s;
-                transform: translateY(0px);
-            }
-            @-webkit-keyframes floatup {
-                0% {
-                    transform: translateY(350px)
-                }
-
-                100% {
-                    transform: translateY(0px)
-                }
-            }
-            @keyframes floatup {
-                0% {
-                    transform: translateY(350px)
-                }
-
-                100% {
-                    transform: translateY(0px)
-                }
-            }
-            #system-name {
-                display: block;
-                width: 345px;
-                height: 25px;
-                position: absolute;
-                bottom: 160px;
-                left: -160px;
-                background-color: blue;
-                background: blue;
-                background: linear-gradient(#00045f, #010079, blue);
-                background: -webkit-linear-gradient(#00045f, #010079, blue);
-                background: -o-linear-gradient(#00045f, #010079, blue);
-                background: -moz-linear-gradient(#00045f, #010079, blue);
-                font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
-                color: white;
-                font-size: 17px;
-                transform: rotate(-90deg);
-                padding-left: 15px;
-            }
-            #start-menu-button-container {
-                width: 186px;
-                height: 100%;
-                position: absolute;
-                bottom: 0px;
-                right: 0px;
-            }
-            .start-menu-button {
-                background-color: #c0c0c0;
-                position: fixed;
-                position: relative;
-                bottom: 0px;
-                left: 0px;
-                padding-left: 5px;
-                cursor: pointer;
-                height: 43px;
-                color: black;
-            }
-            .start-menu-button-icon {
-                display: inline-block;
-                margin-top: 6px;
-                width: 36px;
-            }
-            .start-menu-button-label {
-                display: inline-block;
-                font-size: 17px;
-                vertical-align: middle;
-                color: inherit;
-                padding-top: 4px;
-            }
-            .start-menu-button:hover {
-                background-color: #000080;
-                color: white;
-            }
-            .window {
-                margin: 0px;
-                position: fixed;
-            }
-            .window-border {
-                box-shadow: 1px 1px 0px 0px #424242;
-                border: 1px solid #ffffff;
-                border-right-color: #848484;
-                border-bottom-color: #848484;
-                background: #c0c0c0;
-                padding: 2px;
-            }
-            .title-bar {
-                padding: 0;
-                background: #808080;
-                color: #fff;
-                font-weight: 500;
-                max-height: 21px;
-            }
-                .title-bar .title {
-                    margin-left: 4px;
-                    display: inline-block;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    /* "overflow" value must be different from "visible" */
-                    text-overflow: ellipsis;                   
-                    font-size: 15px;
-                    vertical-align: middle;
-                    margin-bottom: 2px;
-                }
-                .title-bar .icon {
-                    width: 20px;
-                    height: 20px;
-                    display: inline-block;
-                    margin-bottom: 6px;
-                    margin-left: 4px;
-                }
-            .control-box {
-                float: right;
-                margin: 1px;
-                margin-bottom: 2px;
-                margin-top: 1.95px;
-            }
-            .button-3d {
-                display: block;
-                float: left;
-                border: 1.5px solid #ffffff;
-                border-right-color: #424242;
-                border-bottom-color: #424242;
-                background: #c0c0c0;
-                height: 18px;
-                width: 18px;
-                color: transparent;
-                text-decoration: none;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-                .button-3d:active {
-                    border: 1px inset #fff;
-                }
-                .button-3d span {
-                    display: block;
-                    border-top-width: 0;
-                    border-left-width: 0;
-                    font-size: 1px;
-                    line-height: 13px;
-                }
-                .button-3d.maximize {
-                    margin-right: 2px;
-                    margin-left: 1.05px;
-                }
-                .button-3d.close {
-                    background-image: url(./images/window/close.png);
-                    margin-right: 2px;
-                }
-                .button-3d.question {
-                    background-image: url(./images/window/question.png);
-                }
-                .button-3d.question-save {
-                    background-image: url(./images/window/question.bmp);
-                }
-                .button-3d.close-save {
-                    background-image: url(./images/window/close.png);
-                }
-                .button-3d.close-dialog {
-                    background-image: url(./images/window/close.png);
-                }
-                .button-3d.close-run {
-                    background-image: url(./images/window/close.png);
-                }
-                .button-3d.maximize {
-                    background-image: url(./images/window/maximize.png);
-                }
-                .button-3d.minimize {
-                    background-image: url(./images/window/minimize.png);
-                }
-        .menu-bar,
-        .toolbar {
-            height: 20px;
-            overflow: hidden;
-            margin: 2px 1px;
-            padding: 0 6px;
-            background: url(./images/window/toolbar-grip.png) no-repeat 2px 6px;
-        }
-            .menu-bar {
-                line-height: 22px;
-                margin: 0;
-                border: 1px outset #fff;
-                padding-bottom: 4px;
-            }
-                .menu-bar a {
-                    text-decoration: none;
-                    display: inline-block;
-                    padding: 0px 4px;
-                }
-                    .menu-bar a span {
-                        text-decoration: underline;
-                    }
-            h1 {
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            h3 {
-                font-size: 18px;
-            }
-            h4 {
-                font-size: 16px;
-            }
-            pre {
-                font-size: 14px;
-            }
-            .clear {
-                clear: both;
-            }
-        .toolbar {
-            background-color: #c0c0c0;
-            border: 1px outset #fff;
-            margin: 0;
-        }
-            .toolbar a {
-                display: inline-block;
-                border: 1px solid transparent;
-                margin: 0px 0px 2px 0px;
-                text-decoration: none;
-                width: 18px;
-                height: 18px;
-                background: no-repeat center left;
-            }
-            .toolbar .sep {
-                display: inline-block;
-                width: 1px;
-                background: #a5a5a5;
-                margin: 1px 2px;
-                height: 20px;
-                border-right: 1px solid #ffffff;
-                border-bottom: 1px solid #ffffff;
-            }
-            .toolbar.float-left {
-                float: left;
-                margin-right: 2px;
-            }
-            .toolbar.float-right {
-                float: right;
-            }
-            .toolbar .b-new {
-                background-image: url(./images/Word%20Images/New.bmp);
-            }
-            .toolbar .b-open {
-                background-image: url(./images/Word%20Images/Open.bmp);
-            }
-            .toolbar .b-save {
-                background-image: url(./images/Word%20Images/save.bmp);
-            }
-            .toolbar .b-print {
-                background-image: url(./images/Word%20Images/print.bmp);
-            }
-            .toolbar .b-preview {
-                background-image: url(./images/Word%20Images/preview.bmp);
-            }
-            .toolbar .b-spell {
-                background-image: url(./blob/master/app/images/Word%20Images/spellcheck.bmp);
-            }
-            .toolbar .b-cut {
-                background-image: url(./images/Word%20Images/cut.bmp);
-            }
-            .toolbar .b-copy {
-                background-image: url(./images/Word%20Images/copy.bmp);
-            }
-            .toolbar .b-paste {
-                opacity: 0.2;
-                filter: alpha(opacity=20);
-                background-image: url(./images/Word%20Images/paste.bmp);
-            }
-            .toolbar .b-style-brush {
-                background-image: url(./images/Word%20Images/style.bmp);
-            }
-            .toolbar .b-undo {
-                background-image: url(./images/Word%20Images/undo.bmp);
-            }
-            .toolbar .b-redo {
-                background-image: url(./images/Word%20Images/redo.bmp);
-            }
-            .toolbar .b-style {
-                background-image: url(./images/Word%20Images/style.bmp);
-            }
-            .toolbar .b-bold {
-                background-image: url(./images/Word%20Images/bold.bmp);
-            }
-            .toolbar .b-italic {
-                background-image: url(./images/Word%20Images/italic.bmp);
-            }
-            .toolbar .b-underline {
-                background-image: url(./images/Word%20Images/underline.bmp);
-            }
-            .toolbar .b-left {
-                background-image: url(./images/Word%20Images/left.bmp);
-            }
-            .toolbar .b-center {
-                background-image: url(./images/Word%20Images/center.bmp);
-            }
-            .toolbar .b-right {
-                background-image: url(./images/Word%20Images/right.bmp);
-            }
-            .toolbar .b-ol {
-                background-image: url(./images/Word%20Images/ol.bmp);
-            }
-            .toolbar .b-ul {
-                background-image: url(./images/Word%20Images/ul.bmp);
-            }
-            .toolbar .b-share {
-                background-image: url(./images/Word%20Images/share.bmp);
-            }
-            .toolbar .b-tweet {
-                background-image: url(./images/Word%20Images/tweet.bmp);
-            }
-            .toolbar .b-fork {
-                background-image: url(./images/Word%20Images/fork.bmp);
-            }
-            .toolbar .b-number {
-                background-image: url(./images/Word%20Images/number.bmp);
-            }
-            .toolbar .b-bullet {
-                background-image: url(./images/Word%20Images/bullet.bmp);
-            }
-            .toolbar .b-outdent {
-                background-image: url(./images/Word%20Images/indent.bmp);
-            }
-            .toolbar .b-indent {
-                background-image: url(./images/Word%20Images/inc-indent.bmp);
-            }
-            .toolbar .b-hilite {
-                background-image: url(./images/Word%20Images/highlight.bmp);
-            }
-            .toolbar .b-fontcolor {
-                background-image: url(./images/Word%20Images/fontcolor.bmp);
-            }
-            .toolbar a:hover {
-                background-color: #c0c0c0;
-                border: 1px outset #fff;
-            }
-            .toolbar a:active {
-                /* background-color: #c0c0c0; */
-                border: 1px inset #fff;
-            }
-            .toolbar a.text {
-                width: auto;
-                padding-left: 22px;
-                padding-right: 4px;
-                line-height: 18px;
-                background-position: 2px 1px;
-            }
-            .toolbar a.text {
-                font-style: normal;
-                display: inline-block;
-                padding: 2px;
-                font-size: 10px;
-                line-height: 10px;
-                background: #d8e6ff;
-                border: 1px solid #c2d3f4;
-                border-radius: 3px;
-                margin-left: 5px;
-            }
-            .toolbar .picker {
-                line-height: 18px;
-                height: 18px;
-                background: #fff;
-                margin: 4px 0 2px 0;
-                display: inline-block;
-                padding-left: 3px;
-                position: relative;
-                vertical-align: top;
-            }
-        .selectPicker {
-            line-height: 18px;
-            /*height: 22px;*/
-            padding: 0 30px 0 10px !important;
-            -webkit-padding-end: 30px !important;
-            -webkit-padding-start: 10px !important;
-            /*margin: 2px 0 2px 0;*/
-            width: auto;
-            /*background: #fff;*/
-            display: inline-block;
-            padding-left: 2px;
-            position: relative;
-            vertical-align: top;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0px;
-            background: url(../images/window/toolbar/combo.png), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
-            background: url(../images/window/toolbar/combo.png), -moz-linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
-            background: url(../images/window/toolbar/combo.png), linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
-            background-repeat: no-repeat;
-            background-position: 97.5% 50%, 99% 50%;
-            -webkit-background-origin: padding-box;
-            background-origin: padding-box;
-            -webkit-background-clip: border-box;
-            background-clip: border-box;
-            -webkit-background-size: auto auto, 50% 90%;
-            background-size: auto auto, 26px 16px;
-            /*outline: none;*/
-        }
-            .selectPicker:focus {
-                /*outline: none;*/
-            }        
-        .picker .arrow {
-            display: block;
-            float: right;
-            width: 11px;
-            background: #c0c0c0 url(../images/window/toolbar/combo.png) no-repeat center center;
-            height: 16px;
-            margin: 1px 1px 1px 10px;
-        }
-        .color-picker {
-            margin-top: 16px;
-            /*top:10px;*/
-            position: fixed;
-            background: #c0c0c0;
-            z-index: 99;
-        }
-            .color-picker table {
-                width: 100px;
-            }
-            .color-picker a {
-                border: 1px solid #848484;
-                width: 10px;
-                height: 10px;
-                text-align: center;
-            }
-            .color-picker:hover {
-                border: 1px solid #848484;
-            }
-        td {
-            margin: 1px;
-            border: 1px solid #c0c0c0;
-        }
-            td:hover {
-                border: 1px outset #fff;
-            }
-            td:active {
-                border: 1px inset #fff;
-                background: url(../images/Word%20Images/background.bmp);
-            }
+        /* Minesweeper */
         #minesweeper {
             text-align: left;
             z-index: 99999;
             display: none;
         }
-            .active-window .title-bar {
-                background: #08216b !important;
-                /* Old browsers */
-                background: -moz-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
-                /* FF3.6+ */
-                background: -webkit-gradient(linear, left top, right top, color-stop(0%, #08216b), color-stop(100%, #a5cef7)) !important;
-                /* Chrome,Safari4+ */
-                background: -webkit-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
-                /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
-                /* Opera 11.10+ */
-                background: -ms-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
-                /* IE10+ */
-                background: linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
-                /* W3C */
-                /* IE6-9 */
-            }
-        .ui-menu.ui-autocomplete {
-            width: 280px !important;
-            background: white;
-            border: 1px solid black;
-            padding: 2px;
-            font: normal 11pt/1.3 'Hevetica Neue', Arial, Helvetica, sans-serif;
-            z-index: 214293949;
-        }
-            .ui-menu.ui-autocomplete li {
-                display: block;
-                font: normal 8pt/1.3 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            }
-            .ui-menu.ui-autocomplete:hover li {
-                color: white;
-                background: darkblue;
-            }      
-        /* - - - - - - Resizabale Component - - - - - - - - */
-        .ui-resizable {
-            position: relative;
-        }
-        .ui-resizable-handle {
-            position: absolute;
-            font-size: 0 0.0714px;
-            display: block;
-            -ms-touch-action: none;
-        }
-        .ui-resizable-s {
-            cursor: s-resize;
-            height: 20px;
-            width: 100%;
-            left: 0;
-        }
-        .ui-resizable-e {
-            cursor: e-resize;
-            width: 20px;
-            right: -20px;
-            top: 0;
-            height: 100%;
-        }
-        .ui-resizable-w {
-            cursor: w-resize;
-            width: 7px;
-            left: -4px;
-            top: 0;
-            height: 100%;
-        }
-        .ui-resizable-se {
-            cursor: se-resize;
-            width: 12px;
-            height: 12px;
-            right: 0.0714px;
-            padding: 14px;
-        }
-        .ui-resizable-sw {
-            cursor: sw-resize;
-            width: 9px;
-            height: 9px;
-            left: -4px;
-            bottom: -4px;
-        }
-        .ui-resizable-nw {
-            cursor: nw-resize;
-            width: 9px;
-            height: 9px;
-            left: -4px;
-            top: -4px;
-        }
-        .ui-resizable-ne {
-            cursor: ne-resize;
-            width: 9px;
-            height: 9px;
-            right: -4px;
-            top: -4px;
-        }
-        .application-window {
-            bottom: 20%; /*  */
-            left: 20%; /*  */
-            height: 400.4px; /*  */
-            z-index: 103;
-        }
-        .application-fullscreen {
-            top: 0 !important;
-            left: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
         #mine-frame {
             width: 100%;
-            height: 100%;
-            min-height: 375px;
+            height: auto;
+            min-height: 250px;
             resize: both;
         }
         #minesweeper-content {
             resize: both;
-        }
-        #mydiv {
-            position: absolute;
-            z-index: 9;
-            background-color: #f1f1f1;
-            text-align: center;
-            border: 1px solid #d3d3d3;
-        }
-        #mydivheader {
-            padding: 10px;
-            cursor: move;
-            z-index: 10;
-            background-color: #2196F3;
-            color: #fff;
-        }
-        #task-container {
-            position: absolute;
-            bottom: 0;
-            left: 69px;
-            margin-right: 95px;
-            display: inline-block;
-            height: 100%;
-            width: auto;
-            min-height: 32px;
-        }
-        .task {
-            display: none;
-            border: 2px outset #fff;
-            padding: 0px 0px 0.0px 0.0px;
-            max-width: 219px;
-            min-width: 30px;
-            margin-top: 4px;
-            margin-left: 2px;
-            box-shadow: 1px 1px black;
-            height: 25px;
-            vertical-align: top;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-        .task-text {
-            display: inline-block;
-            text-align: left;
-            font-size: 14px;
-            position: relative;
-            text-align: left;
-            vertical-align: top;
-            margin: 1px 6px 0 0;
-        }
-        .task-icon {
-            display: inline-block;
-            height: 21px;
-            width: 21px;
-            margin-left: 2px;
-            margin-bottom:5px;
-        }
-        .active-task {
-            border: 2px inset #fff;
-            box-shadow: -1px -1px black;
-            font-weight: bold;
-            overflow-x: hidden;
-            margin-top: 4px;
-        }
+        }  
+        /* File Explorer */
         #explorer {
             z-index: 122;
             display: none;
@@ -979,7 +256,8 @@
             height: 16px;
             margin: 0px 2px;
             vertical-align: middle;
-        }       
+        }
+
     </style>
     <script>
         function startTime() {
@@ -1057,7 +335,8 @@
             </div>
         </div>
         <!-- Minesweeper -->
-        <div class="application" onclick="openApplication('minesweeper', 'minesweeper-task')">
+        <div id="minesweeper-desktop-app" class="application" onclick="openApplication('minesweeper', 'minesweeper-task')">
+            <!--  onclick="openApplication('minesweeper', 'minesweeper-task')" -->
             <img src="./images/minesweeper.ico" class="application-icon" />
             <div class="application-title">
                 Minesweeper
@@ -1078,9 +357,9 @@
                 </div>
                 <div class="clear"></div>
                 <div id="minesweeper-content">
-                    <iframe src="http://minesweeper.tenmore.solutions/" id="mine-frame" scrolling="no"></iframe>
+                    <!--<iframe src="http://minesweeper.tenmore.solutions/" id="mine-frame" scrolling="no"></iframe>-->
                     <!-- width="270" height="375" -->
-                    <!--<iframe src="http://bferguson.tenmore.solutions/minesweeper/minesweeper.html" id="mine-frame" scrolling="no"></iframe>-->
+                    <iframe src="./minesweeper/minesweeper.html" id="mine-frame" scrolling="no"></iframe>
                 </div>
             </div>
         </div>
@@ -1151,10 +430,10 @@
                                 <p class="text"><span>LinkedIn</span></p>
                             </div>
                             <!--
-    <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://youtube.com/user/lolstring909">
-        <p class="text"><span>Youtube</span></p>
-    </div>
-        -->
+                                <div class="folder-url folder-icon" directory="root" tabindex="0" style="background:url(images/win98_icons/msie2.ico) no-repeat center top;" url="https://youtube.com/user/lolstring909">
+                                <p class="text"><span>Youtube</span></p>
+                                </div>
+                            -->
                             <div class="folder-icon user-file" tabindex="0" fileid="file-0000000000001" program-name="msword" type="undefined" style="background:url(./images/win98_icons/WINWORD_2.ico) no-repeat center top;background-size: 32px; ">
                                 <p class="text" style="text-align:center;"><span>My Details</span></p>
                             </div>
@@ -1176,14 +455,6 @@
             <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
             <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
         </div>
-        <!--
-        <div id="mydiv">
-            <div id="mydivheader">Click here to move</div>
-            <p>Move</p>
-            <p>this</p>
-            <p>DIV</p>
-        </div>
-            -->
     </div>
     <div id="taskbar">
         <!-- Start Button -->
@@ -1218,10 +489,16 @@
         <div id="system-name">Windows 98</div>
         <div id="start-menu-button-container">
             <!-- Programs -->
-            <div class="start-menu-button">
+            <div id="programs" class="start-menu-button">
                 <img src="./images/directory_program_group_small.ico" class="start-menu-button-icon" />
                 <div class="start-menu-button-label">Programs</div>
-            </div>
+                <div class="arrow">▸</div>
+                <div id="programs-submenu" class="submenu">
+                    <div class="submenu-option">
+                        <div class="text">Minesweeper</div>
+                    </div>
+                </div>
+            </div>         
             <!-- Favorites -->
             <div class="start-menu-button">
                 <img src="./images/directory_favorites_small.ico" class="start-menu-button-icon" />
@@ -1260,46 +537,13 @@
         </div>
     </div>
     <script>
-        var selected = null, // Object of the element to be moved
-            x_pos = 0, y_pos = 0, // Stores x & y coordinates of the mouse pointer
-            x_elem = 0, y_elem = 0; // Stores top, left values (edge) of the element
-        // Will be called when user starts dragging an element
-        function _drag_init(elem) {
-            // Store the object of the element which needs to be moved
-            selected = elem;
-            x_elem = x_pos - selected.offsetLeft;
-            y_elem = y_pos - selected.offsetTop;
-        }
-        // Will be called when user dragging an element
-        function _move_elem(e) {
-            x_pos = document.all ? window.event.clientX : e.pageX;
-            y_pos = document.all ? window.event.clientY : e.pageY;
-            if (selected !== null) {
-                selected.style.left = (x_pos - x_elem) + 'px';
-                selected.style.top = (y_pos - y_elem) + 'px';
-            }
-        }
-        // Destroy the object when we are done
-        function _destroy() {
-            selected = null;
-        }
-        // Bind the functions...
-        document.getElementById('minesweeper').onmousedown = function () {
-            _drag_init(this);
-            return false;
-        };
-        document.onmousemove = _move_elem;
-        document.onmouseup = _destroy;
-    </script>
-    <script>
-        dragElement(document.getElementById(("mydiv")));
+        dragElement(document.getElementById(("minesweeper")));
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             if (document.getElementById(elmnt.id + "header")) {
                 /* if present, the header is where you move the DIV from:*/
                 document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            } else {
-                /* otherwise, move the DIV from anywhere inside the DIV:*/
+            } else { /* otherwise, move the DIV from anywhere inside the DIV:*/                
                 elmnt.onmousedown = dragMouseDown;
             }
             function dragMouseDown(e) {
@@ -1330,6 +574,7 @@
         }
     </script>
     <script>
+        //document.getElementById('minesweeper-desktop-app').onclick = openApplication('minesweeper', 'minesweeper-task');
         function fullscreen(id) {
             var h = document.getElementById("desktop").offsetHeight;
             var w = document.getElementById("desktop").offsetWidth;
@@ -1365,9 +610,7 @@
             if (item.style.display == 'none') {
                 item.style.display = 'block';
             }
-            else if (item.style.display == ' block') {
-                item.style.display = 'none';
-            }
+            
             else {
                 item.style.display = 'none';
             }
